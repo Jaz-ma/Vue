@@ -16,14 +16,13 @@ const app = Vue.createApp({
         const res = await fetch('https://randomuser.me/api')
         const {results} = await res.json()
 
-            this.firstName ='Sarah',
-            this.lastName ='Ghadi',
-            this.email="sarah@gmail.com",
-            this.gender='female',
-            this.portrait='https://randomuser.me/portraits/women/10.jpg'
+            this.firstName =results[0].name.first,
+            this.lastName =results[0].name.last,
+            this.email=results[0].email
+            this.gender=results[0].gender
+            this.portrait=results[0].picture.large
 
 
-        console.log(results);
     }
 
     }
